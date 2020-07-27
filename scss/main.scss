@@ -1,0 +1,871 @@
+// ---------- color palette ----------
+$white: #fff;
+$black: #000;
+$darkgray: #181818;
+$gray: #858585;
+$lightgray: #ababab;
+$lightblue: #eaf0fd;
+$palegray: #eaeaea;
+$paleblue: #c2c8d5;
+
+// ---------- mediaQuery mixin ----------
+@mixin tablet {
+  @media screen and (min-width: 768px) and (max-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin phone {
+  @media screen and (max-width: 767px) and (min-width: 320px) {
+    @content;
+  }
+}
+
+@mixin tabletAndPhone {
+  @media screen and (max-width: 1024px) and (min-width: 320px) {
+    @content;
+  }
+}
+
+// ----- style reset -----
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+dl,
+dt,
+dd,
+ol,
+ul,
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  background: none;
+  border: none;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+  letter-spacing: 0.3rem;
+  outline-color: $black;
+}
+
+// ----- html , body -----
+
+html {
+  height: 100%;
+  width: 100%;
+  font-size: 62.5%;
+}
+
+body {
+  height: 100%;
+  width: 100%;
+  color: $darkgray;
+  font: 1.6em "EB Garamond", serif, "Sawarabi Mincho";
+}
+
+// ---------- header ----------
+
+header {
+  position: fixed;
+  width: 100%;
+  height: 80px;
+  z-index: 3;
+
+  .logo {
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    height: 30px;
+    transform: translate(-5%, -50%);
+    cursor: pointer;
+
+    @include phone {
+      left: 10%;
+      height: 22px;
+      transform: translate(-10%, -50%);
+    }
+
+    a {
+      color: $gray;
+      font-size: 2rem;
+      letter-spacing: 0.6rem;
+
+      @include phone {
+        font-size: 1.6rem;
+      }
+    }
+  }
+
+  .gnav_btn {
+    position: absolute;
+    top: 50%;
+    right: 5%;
+    width: 30px;
+    height: 30px;
+    transform: translate(-5%, -50%);
+    cursor: pointer;
+    z-index: 10;
+
+    @include phone {
+      right: 6%;
+      width: 30px;
+      height: 22px;
+    }
+
+    span {
+      position: relative;
+      top: 0;
+      left: 0;
+      display: inline-block;
+      width: 20px;
+      height: 1px;
+      transform: translate(0, -50%);
+      background-color: $darkgray;
+      transition: 0.2s;
+      will-change: transform;
+
+      @include phone {
+        top: -4px;
+      }
+
+      &:before {
+        content: "";
+        position: absolute;
+        top: -10px;
+        left: 0;
+        width: 30px;
+        height: 1px;
+        background-color: $darkgray;
+        transition: 0.6s;
+
+        @include phone {
+          top: -7px;
+          width: 30px;
+        }
+      }
+
+      &:after {
+        content: "";
+        position: absolute;
+        top: 10px;
+        left: 0;
+        width: 10px;
+        height: 1px;
+        background-color: $darkgray;
+        transition: 0.6s;
+
+        @include phone {
+          top: 7px;
+          width: 10px;
+        }
+      }
+    }
+
+    // ----- open animation -----
+    .open {
+      width: 0;
+
+      &:before {
+        width: 30px;
+        transform: translateY(10px) rotate(45deg);
+
+        @include phone {
+          transform: translateY(7px) rotate(45deg);
+        }
+      }
+
+      &:after {
+        width: 30px;
+        transform: translateY(-10px) rotate(-45deg);
+
+        @include phone {
+          transform: translateY(-7px) rotate(-45deg);
+        }
+      }
+    }
+  }
+
+  // ---------- gnav ----------
+  nav {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background-color: $white;
+    display: none;
+    overflow: hidden;
+
+    ul {
+      position: absolute;
+      top: 40%;
+      left: 30%;
+      transform: translate(-30%, -40%);
+      width: 500px;
+
+      @include phone {
+        width: 289px;
+      }
+
+      li {
+        line-height: 8rem;
+        font-size: 5rem;
+        letter-spacing: 1rem;
+
+        @include phone {
+          line-height: 6rem;
+          font-size: 3rem;
+        }
+
+        a {
+          color: $gray;
+          transition: 0.3s ease;
+
+          &:hover {
+            color: $palegray;
+          }
+        }
+      }
+    }
+  }
+}
+
+// ---------- container ----------
+.container {
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+
+  section {
+    position: relative;
+    width: 100%;
+    min-height: 100%;
+    padding: 10% 5%;
+
+    @include phone {
+      padding: 18% 5%;
+    }
+
+    .title {
+      font-weight: 400;
+      font-size: 2.6rem;
+      letter-spacing: 1rem;
+
+      @include phone {
+        font-size: 2rem;
+      }
+    }
+
+    p {
+      font-size: 1.4rem;
+      letter-spacing: 0.4rem;
+
+      @include phone {
+        font-size: 1.2rem;
+      }
+    }
+
+    .title,
+    .ja,
+    .en,
+    .products-name,
+    .products-price,
+    .products-detail,
+    dt,
+    dd {
+      color: transparent;
+      text-shadow: 0 0 30px $lightgray;
+      transform: translate(0, 50px);
+      transition: all 1.2s;
+    }
+
+    .animation {
+      transform: translate(0, 0);
+      color: $darkgray;
+      text-shadow: none;
+    }
+  }
+
+  // ---------- top ----------
+  #top {
+    width: 100%;
+    height: 100vh;
+
+    .background {
+      position: absolute;
+      top: 0;
+      left: 40%;
+      width: 60%;
+      height: 100%;
+      background-color: $palegray;
+    }
+
+    .hero {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 64%;
+      height: 58%;
+      transform: translate(0, -50%);
+      background: url(../images/hero.jpg) right 84% no-repeat;
+      background-size: cover;
+
+      @include tablet {
+        width: 76%;
+        height: 50%;
+      }
+
+      @include phone {
+        width: 84%;
+        height: 44%;
+      }
+    }
+  }
+
+  // ---------- concept ----------
+  #concept {
+    .concept__text {
+      position: relative;
+      top: 20px;
+      left: 0;
+      max-width: 540px;
+      padding: 20px 0;
+
+      .ja {
+        line-height: 2.6rem;
+        font-size: 1.4rem;
+        letter-spacing: 0.4rem;
+
+        @include phone {
+          line-height: 2rem;
+          font-size: 1.2rem;
+          letter-spacing: 0.2rem;
+        }
+      }
+
+      .en {
+        margin-top: 20px;
+        line-height: 2rem;
+        font-size: 1.3rem;
+        letter-spacing: 0.4rem;
+
+        @include phone {
+          line-height: 1.8rem;
+          font-size: 1.1rem;
+          letter-spacing: 0.2rem;
+        }
+      }
+    }
+
+    .concept__images {
+      position: relative;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 62vh;
+
+      @include tablet {
+        height: 40vh;
+      }
+
+      @include phone {
+        height: 54vh;
+      }
+
+      .image-hand {
+        position: absolute;
+        top: -10%;
+        right: 0;
+        width: 46%;
+        height: 46vh;
+        overflow: hidden;
+
+        @include tablet {
+          top: 10%;
+          height: 24vh;
+        }
+
+        @include phone {
+          top: 6%;
+          width: 80%;
+          height: 22vh;
+        }
+
+        .image-hand_cover {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: url(../images/hand.jpg) 60% bottom no-repeat;
+          background-size: cover;
+          will-change: transform;
+        }
+      }
+
+      .image-flower {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 50%;
+        height: 46vh;
+        overflow: hidden;
+        background: url(../images/flower.jpg) center center no-repeat;
+        background-size: cover;
+        will-change: transform;
+
+        @include tablet {
+          top: 30%;
+          height: 24vh;
+        }
+
+        @include phone {
+          top: 54%;
+          width: 80%;
+          height: 22vh;
+        }
+      }
+    }
+  }
+
+  // ---------- products ----------
+  #products {
+    .products__inner {
+      width: 100%;
+      height: calc(100% - 40px);
+      margin-top: 40px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+
+      .products__images {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+
+        @include phone {
+          width: 100%;
+        }
+
+        .products__image {
+          max-width: 500px;
+          width: 100%;
+          height: auto;
+          margin: 0 auto 0 0;
+          padding-bottom: 20px;
+        }
+
+        .bottom {
+          margin: 0 0 0 auto;
+        }
+      }
+
+      .products__information {
+        width: 50%;
+        padding-left: 5%;
+
+        @include phone {
+          width: 100%;
+          padding: 20px 0;
+        }
+
+        .products-name {
+          font-size: 2rem;
+          letter-spacing: 0.8rem;
+        }
+
+        .products-price {
+          font-size: 1.3rem;
+          line-height: 2rem;
+
+          @include phone {
+            font-size: 1.2rem;
+          }
+        }
+
+        .products-detail {
+          padding: 40px 0 20px;
+          line-height: 2.2rem;
+
+          @include phone {
+            line-height: 2rem;
+            font-size: 1.2rem;
+          }
+        }
+
+        dl {
+          font-size: 1.2rem;
+          letter-spacing: 0.3rem;
+
+          @include phone {
+            font-size: 1.1rem;
+          }
+          dt {
+            float: left;
+          }
+          dd {
+            width: 260px;
+            padding-left: 90px;
+          }
+        }
+
+        form {
+          margin-top: 40px;
+
+          .select-item {
+            p {
+              font-size: 1.2rem;
+              line-height: 2rem;
+              margin-top: 10px;
+            }
+
+            select {
+              border: none;
+              padding: 0 5px;
+              height: 35px;
+              background-color: $palegray;
+            }
+
+            .num {
+              width: 60px;
+            }
+
+            .color {
+              width: 190px;
+            }
+          }
+
+          .checkout_btn {
+            width: 288px;
+            height: 46px;
+            margin-top: 30px;
+            background-color: $darkgray;
+            text-align: center;
+            color: $white;
+
+            &:hover {
+              background-color: $paleblue;
+            }
+          }
+        }
+      }
+    }
+
+    // ---------- check out ----------
+    .checkout {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: $white;
+      overflow-y: scroll;
+      z-index: 3;
+
+      .close_btn {
+        position: absolute;
+        top: 3%;
+        right: 3%;
+        width: 30px;
+        height: 30px;
+
+        @include phone {
+          width: 24px;
+          height: 24px;
+        }
+
+        &:before {
+          content: "";
+          position: absolute;
+          top: 14px;
+          left: 0px;
+          width: 30px;
+          height: 1px;
+          background-color: $darkgray;
+          transform: rotate(45deg);
+
+          @include phone {
+            top: 11px;
+            width: 24px;
+          }
+        }
+
+        &:after {
+          content: "";
+          position: absolute;
+          top: 14px;
+          left: 0px;
+          width: 30px;
+          height: 1px;
+          background-color: $darkgray;
+          transform: rotate(-45deg);
+
+          @include phone {
+            top: 11px;
+            width: 24px;
+          }
+        }
+      }
+
+      .checkout__information {
+        position: absolute;
+        top: 80px;
+        left: 50%;
+        max-width: 600px;
+        width: 80%;
+        height: 750px;
+        transform: translate(-50%, 0);
+
+        @include phone {
+          width: 90%;
+        }
+
+        .title {
+          margin-bottom: 30px;
+        }
+
+        p {
+          font-size: 1.2rem;
+          margin: 10px 0 5px;
+        }
+
+        .checkout__detail {
+          width: 100%;
+          margin: 10px 0;
+          padding: 10px;
+          background-color: $lightblue;
+
+          p {
+            margin: 0;
+          }
+
+          .checkout__total {
+            margin-top: 10px;
+            border-bottom: solid 1px $darkgray;
+          }
+        }
+
+        .buy_btn {
+          display: block;
+          width: 100%;
+          max-width: 320px;
+          min-width: 160px;
+          height: 46px;
+          margin-top: 40px;
+          color: $white;
+          background-color: $darkgray;
+
+          &:hover {
+            background-color: $paleblue;
+          }
+        }
+
+        .checkout__form {
+          margin: 20px 0;
+
+          input {
+            width: 100%;
+            min-width: 160px;
+            height: 36px;
+            border: none;
+            background-color: $palegray;
+            padding: 0 10px;
+          }
+
+          #checkout__name,
+          #checkout__tel,
+          #checkout__email {
+            max-width: 320px;
+          }
+
+          #checkout__zipcode {
+            max-width: 160px;
+          }
+        }
+      }
+    }
+  }
+
+  // ---------- contact ----------
+  #contact {
+    .contact__form {
+      padding: 40px;
+
+      @include phone {
+        padding: 10px;
+      }
+
+      p {
+        margin: 20px 0 6px;
+      }
+
+      input {
+        width: 100%;
+        max-width: 300px;
+        min-width: 160px;
+        height: 36px;
+        border: none;
+        background-color: $palegray;
+        padding: 0 10px;
+      }
+
+      textarea {
+        height: 140px;
+        width: 100%;
+        max-width: 580px;
+        min-width: 160px;
+        padding: 10px;
+        border: none;
+        background-color: $palegray;
+      }
+
+      .confirm_btn {
+        display: block;
+        width: 100%;
+        max-width: 300px;
+        min-width: 160px;
+        height: 46px;
+        margin-top: 40px;
+        background-color: $darkgray;
+        color: $white;
+
+        &:hover {
+          background-color: $paleblue;
+        }
+      }
+    }
+
+    // ---------- confirm ----------
+    .confirm {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: $white;
+      overflow-y: scroll;
+      z-index: 12;
+
+      .confirm__contents {
+        position: relative;
+        top: 40px;
+        left: 50%;
+        width: 80%;
+        max-width: 1000px;
+        min-width: 300px;
+        max-height: 800px;
+        padding: 5%;
+        transform: translate(-50%, 0);
+
+        .title {
+          margin-bottom: 40px;
+        }
+
+        p {
+          color: $gray;
+          margin-bottom: 6px;
+        }
+
+        .confirm__name,
+        .confirm__tel,
+        .confirm__email,
+        .confirm__text {
+          height: 36px;
+          color: $darkgray;
+          background-color: $palegray;
+          margin-bottom: 20px;
+          padding: 0 10px;
+          line-height: 3.6rem;
+        }
+
+        .confirm__text {
+          min-height: 70px;
+        }
+
+        .btns {
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+          flex-wrap: wrap;
+          margin-top: 40px;
+
+          .back_btn,
+          .submit_btn {
+            width: 40%;
+            max-width: 300px;
+            min-width: 120px;
+            height: 46px;
+            background-color: $darkgray;
+            color: $white;
+
+            &:hover {
+              background-color: $paleblue;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// ---------- footer ----------
+footer {
+  position: relative;
+  width: 100%;
+  height: 40%;
+  min-height: 340px;
+  background-color: $gray;
+  color: $white;
+  letter-spacing: 0.4rem;
+
+  .shop {
+    position: absolute;
+    top: 5vmin;
+    left: 5vmin;
+    width: 240px;
+    height: 160px;
+
+    h3 {
+      font-size: 1.6rem;
+      font-weight: 400;
+      letter-spacing: 0.6rem;
+    }
+
+    hr {
+      width: 100px;
+      margin: 20px 0;
+    }
+
+    ul {
+      li {
+        padding: 4px 0;
+        font-size: 1.4rem;
+        letter-spacing: 0.4rem;
+      }
+    }
+  }
+
+  small {
+    position: absolute;
+    bottom: 5%;
+    right: 3%;
+    font-size: 1.2rem;
+  }
+}

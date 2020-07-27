@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NATURAL SOAP</title>
+    <meta name="description" content="natural-soap" />
+    <meta name="author" content="shiho mizusawa" />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Sawarabi+Mincho&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="css/main.css" />
+    <script type="text/javascript" src="javascripts/jquery.min.js"></script>
+    <script type="text/javascript" src="javascripts/main.js"></script>
+  </head>
+  <body>
+    <!-- header -->
+    <header>
+      <div class="logo"><a href="/">NATURAL SOAP</a></div>
+      <div class="gnav_btn">
+        <span></span>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#top" class="gnav_link">HOME</a></li>
+          <li><a href="#concept" class="gnav_link">CONCEPT</a></li>
+          <li><a href="#products" class="gnav_link">PRODUCTS</a></li>
+          <li><a href="#contact" class="gnav_link">CONTACT US</a></li>
+        </ul>
+      </nav>
+    </header>
+    <!-- container -->
+    <div class="container">
+      <!-- top -->
+      <div id="top">
+        <div class="background"></div>
+        <div class="hero"></div>
+      </div>
+      <!-- concept -->
+      <section id="concept">
+        <h1 class="title">CONCEPT</h1>
+        <div class="concept__text">
+          <p class="ja">
+            自然の素材を活かし、肌を優しく洗い上げます。<br />
+            着色料や人工香料、防腐剤は一切入っていないため<br />
+            敏感肌の方でも、安心してお使いいただけます。
+          </p>
+          <p class="en">
+            Using natural materials, it gently cleanses the skin.<br />
+            It contains no coloring, artificial flavors or preservatives.<br />
+            Even sensitive skin can be used with confidence.
+          </p>
+        </div>
+        <div class="concept__images">
+          <div class="image-hand">
+            <div class="image-hand_cover"></div>
+          </div>
+          <div class="image-flower"></div>
+        </div>
+      </section>
+      <!-- products -->
+      <section id="products">
+        <h1 class="title">PRODUCTS</h1>
+        <div class="products__inner">
+          <div class="products__images">
+            <img src="images/soap_1.jpg" class="products__image" />
+            <img src="images/soap_2.jpg" class="products__image bottom" />
+          </div>
+          <div class="products__information">
+            <p class="products-name">NATURAL SOAP</p>
+            <p class="products-price">¥600 yen + tax / 30g</p>
+            <p class="products-detail">
+              ワインとラベンダーをベースに作られているため、<br />
+              ほどよく泡立ち、洗った後も肌に潤いを与えます。
+            </p>
+            <dl>
+              <dt>ホワイト:</dt>
+              <dd>ラベンダーの香り</dd>
+              <dt>イエロー:</dt>
+              <dd>オレンジの香り</dd>
+              <dt>ブラウン:</dt>
+              <dd>蜂蜜の香り</dd>
+            </dl>
+            <form action="/" method="post">
+              <div class="select-item">
+                <p>カラー</p>
+                <select name="color" class="color">
+                  <option value="white">ホワイト</option>
+                  <option value="yellow">イエロー</option>
+                  <option value="brown">ブラウン</option>
+                </select>
+                <p>個数</p>
+                <select name="num" class="num">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                </select>
+              </div>
+              <button type="button" class="checkout_btn">CHECK OUT</button>
+            </form>
+          </div>
+        </div>
+        <!-- check out -->
+        <div class="checkout">
+          <div class="close_btn"></div>
+          <div class="checkout__information">
+            <h1 class="title">CART</h1>
+            <form class="checkout__form">
+              <p>お名前</p>
+              <input id="checkout__name" type="text" name="name" required />
+              <p>電話番号</p>
+              <input
+                id="checkout__tel"
+                type="tel"
+                name="phone-number"
+                required
+              />
+              <p>メールアドレス</p>
+              <input id="checkout__email" type="email" name="email" required />
+              <p>郵便番号</p>
+              <input
+                id="checkout__zipcode"
+                type="text"
+                name="zipcode"
+                placeholder="123-4567"
+                required
+              />
+              <p>住所</p>
+              <input
+                id="checkout__address"
+                type="text"
+                name="address"
+                placeholder="東京都渋谷区代々木1-2-3"
+                required
+              />
+              <p>マンション名・部屋番号</p>
+              <input
+                id="checkout__sub-address"
+                type="text"
+                name="sub-address"
+                placeholder="マンション名 101号室"
+              />
+            </form>
+            <p>
+              配送方法：しろねこ運送<br />
+              決済方法：代金引換(手数料300円)
+            </p>
+            <div class="checkout__detail">
+              <p>商品名：NATURAL SOAP (30g)</p>
+              <p class="checkout__color"></p>
+              <p class="checkout__num"></p>
+              <p class="checkout__total"></p>
+            </div>
+            <button type="button" class="buy_btn">購入</button>
+          </div>
+        </div>
+      </section>
+      <!-- contact us -->
+      <section id="contact">
+        <h1 class="title">CONTACT US</h1>
+        <form class="contact__form">
+          <p>お名前</p>
+          <input id="name" type="text" name="name" required />
+          <p>電話番号</p>
+          <input id="tel" type="tel" name="phone-number" required />
+          <p>メールアドレス</p>
+          <input id="email" type="email" name="email" required />
+          <p>お問い合わせ内容</p>
+          <textarea
+            id="text"
+            name="text"
+            cols="30"
+            rows="7"
+            required
+          ></textarea>
+          <button type="button" class="confirm_btn">確認画面へ</button>
+        </form>
+        <!-- confirm -->
+        <div class="confirm">
+          <div class="confirm__contents">
+            <h1 class="title">CONFIRM</h1>
+            <p>お名前</p>
+            <p class="confirm__name"></p>
+            <p>電話番号</p>
+            <p class="confirm__tel"></p>
+            <p>メールアドレス</p>
+            <p class="confirm__email"></p>
+            <p>お問い合わせ内容</p>
+            <p class="confirm__text"></p>
+            <div class="btns">
+              <button type="button" class="back_btn">戻る</button>
+              <button type="button" class="submit_btn">送信</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <!-- container end -->
+    <!-- footer -->
+    <footer>
+      <div class="shop">
+        <h3>NATURAL SOAP</h3>
+        <hr />
+        <ul>
+          <li>natural-soap@mail.jp</li>
+          <li>0120-123-456</li>
+          <li>Tokyo Aoyama 1-2-3</li>
+        </ul>
+      </div>
+      <small>copyright 2020 shiho mizusawa.</small>
+    </footer>
+  </body>
+</html>

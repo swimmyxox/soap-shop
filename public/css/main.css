@@ -1,0 +1,611 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0; }
+
+dl,
+dt,
+dd,
+ol,
+ul,
+li {
+  list-style: none; }
+
+a {
+  text-decoration: none; }
+
+button {
+  background: none;
+  border: none;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none; }
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+  letter-spacing: 0.3rem;
+  outline-color: #000; }
+
+html {
+  height: 100%;
+  width: 100%;
+  font-size: 62.5%; }
+
+body {
+  height: 100%;
+  width: 100%;
+  color: #181818;
+  font: 1.6em "EB Garamond", serif, "Sawarabi Mincho"; }
+
+header {
+  position: fixed;
+  width: 100%;
+  height: 80px;
+  z-index: 3; }
+  header .logo {
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    height: 30px;
+    transform: translate(-5%, -50%);
+    cursor: pointer; }
+    @media screen and (max-width: 767px) and (min-width: 320px) {
+      header .logo {
+        left: 10%;
+        height: 22px;
+        transform: translate(-10%, -50%); } }
+    header .logo a {
+      color: #858585;
+      font-size: 2rem;
+      letter-spacing: 0.6rem; }
+      @media screen and (max-width: 767px) and (min-width: 320px) {
+        header .logo a {
+          font-size: 1.6rem; } }
+  header .gnav_btn {
+    position: absolute;
+    top: 50%;
+    right: 5%;
+    width: 30px;
+    height: 30px;
+    transform: translate(-5%, -50%);
+    cursor: pointer;
+    z-index: 10; }
+    @media screen and (max-width: 767px) and (min-width: 320px) {
+      header .gnav_btn {
+        right: 6%;
+        width: 30px;
+        height: 22px; } }
+    header .gnav_btn span {
+      position: relative;
+      top: 0;
+      left: 0;
+      display: inline-block;
+      width: 20px;
+      height: 1px;
+      transform: translate(0, -50%);
+      background-color: #181818;
+      transition: 0.2s;
+      will-change: transform; }
+      @media screen and (max-width: 767px) and (min-width: 320px) {
+        header .gnav_btn span {
+          top: -4px; } }
+      header .gnav_btn span:before {
+        content: "";
+        position: absolute;
+        top: -10px;
+        left: 0;
+        width: 30px;
+        height: 1px;
+        background-color: #181818;
+        transition: 0.6s; }
+        @media screen and (max-width: 767px) and (min-width: 320px) {
+          header .gnav_btn span:before {
+            top: -7px;
+            width: 30px; } }
+      header .gnav_btn span:after {
+        content: "";
+        position: absolute;
+        top: 10px;
+        left: 0;
+        width: 10px;
+        height: 1px;
+        background-color: #181818;
+        transition: 0.6s; }
+        @media screen and (max-width: 767px) and (min-width: 320px) {
+          header .gnav_btn span:after {
+            top: 7px;
+            width: 10px; } }
+    header .gnav_btn .open {
+      width: 0; }
+      header .gnav_btn .open:before {
+        width: 30px;
+        transform: translateY(10px) rotate(45deg); }
+        @media screen and (max-width: 767px) and (min-width: 320px) {
+          header .gnav_btn .open:before {
+            transform: translateY(7px) rotate(45deg); } }
+      header .gnav_btn .open:after {
+        width: 30px;
+        transform: translateY(-10px) rotate(-45deg); }
+        @media screen and (max-width: 767px) and (min-width: 320px) {
+          header .gnav_btn .open:after {
+            transform: translateY(-7px) rotate(-45deg); } }
+  header nav {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background-color: #fff;
+    display: none;
+    overflow: hidden; }
+    header nav ul {
+      position: absolute;
+      top: 40%;
+      left: 30%;
+      transform: translate(-30%, -40%);
+      width: 500px; }
+      @media screen and (max-width: 767px) and (min-width: 320px) {
+        header nav ul {
+          width: 289px; } }
+      header nav ul li {
+        line-height: 8rem;
+        font-size: 5rem;
+        letter-spacing: 1rem; }
+        @media screen and (max-width: 767px) and (min-width: 320px) {
+          header nav ul li {
+            line-height: 6rem;
+            font-size: 3rem; } }
+        header nav ul li a {
+          color: #858585;
+          transition: 0.3s ease; }
+          header nav ul li a:hover {
+            color: #eaeaea; }
+
+.container {
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto; }
+  .container section {
+    position: relative;
+    width: 100%;
+    min-height: 100%;
+    padding: 10% 5%; }
+    @media screen and (max-width: 767px) and (min-width: 320px) {
+      .container section {
+        padding: 18% 5%; } }
+    .container section .title {
+      font-weight: 400;
+      font-size: 2.6rem;
+      letter-spacing: 1rem; }
+      @media screen and (max-width: 767px) and (min-width: 320px) {
+        .container section .title {
+          font-size: 2rem; } }
+    .container section p {
+      font-size: 1.4rem;
+      letter-spacing: 0.4rem; }
+      @media screen and (max-width: 767px) and (min-width: 320px) {
+        .container section p {
+          font-size: 1.2rem; } }
+    .container section .title,
+    .container section .ja,
+    .container section .en,
+    .container section .products-name,
+    .container section .products-price,
+    .container section .products-detail,
+    .container section dt,
+    .container section dd {
+      color: transparent;
+      text-shadow: 0 0 30px #ababab;
+      transform: translate(0, 50px);
+      transition: all 1.2s; }
+    .container section .animation {
+      transform: translate(0, 0);
+      color: #181818;
+      text-shadow: none; }
+  .container #top {
+    width: 100%;
+    height: 100vh; }
+    .container #top .background {
+      position: absolute;
+      top: 0;
+      left: 40%;
+      width: 60%;
+      height: 100%;
+      background-color: #eaeaea; }
+    .container #top .hero {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 64%;
+      height: 58%;
+      transform: translate(0, -50%);
+      background: url(../images/hero.jpg) right 84% no-repeat;
+      background-size: cover; }
+      @media screen and (min-width: 768px) and (max-width: 1024px) {
+        .container #top .hero {
+          width: 76%;
+          height: 50%; } }
+      @media screen and (max-width: 767px) and (min-width: 320px) {
+        .container #top .hero {
+          width: 84%;
+          height: 44%; } }
+  .container #concept .concept__text {
+    position: relative;
+    top: 20px;
+    left: 0;
+    max-width: 540px;
+    padding: 20px 0; }
+    .container #concept .concept__text .ja {
+      line-height: 2.6rem;
+      font-size: 1.4rem;
+      letter-spacing: 0.4rem; }
+      @media screen and (max-width: 767px) and (min-width: 320px) {
+        .container #concept .concept__text .ja {
+          line-height: 2rem;
+          font-size: 1.2rem;
+          letter-spacing: 0.2rem; } }
+    .container #concept .concept__text .en {
+      margin-top: 20px;
+      line-height: 2rem;
+      font-size: 1.3rem;
+      letter-spacing: 0.4rem; }
+      @media screen and (max-width: 767px) and (min-width: 320px) {
+        .container #concept .concept__text .en {
+          line-height: 1.8rem;
+          font-size: 1.1rem;
+          letter-spacing: 0.2rem; } }
+  .container #concept .concept__images {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 62vh; }
+    @media screen and (min-width: 768px) and (max-width: 1024px) {
+      .container #concept .concept__images {
+        height: 40vh; } }
+    @media screen and (max-width: 767px) and (min-width: 320px) {
+      .container #concept .concept__images {
+        height: 54vh; } }
+    .container #concept .concept__images .image-hand {
+      position: absolute;
+      top: -10%;
+      right: 0;
+      width: 46%;
+      height: 46vh;
+      overflow: hidden; }
+      @media screen and (min-width: 768px) and (max-width: 1024px) {
+        .container #concept .concept__images .image-hand {
+          top: 10%;
+          height: 24vh; } }
+      @media screen and (max-width: 767px) and (min-width: 320px) {
+        .container #concept .concept__images .image-hand {
+          top: 6%;
+          width: 80%;
+          height: 22vh; } }
+      .container #concept .concept__images .image-hand .image-hand_cover {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url(../images/hand.jpg) 60% bottom no-repeat;
+        background-size: cover;
+        will-change: transform; }
+    .container #concept .concept__images .image-flower {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 50%;
+      height: 46vh;
+      overflow: hidden;
+      background: url(../images/flower.jpg) center center no-repeat;
+      background-size: cover;
+      will-change: transform; }
+      @media screen and (min-width: 768px) and (max-width: 1024px) {
+        .container #concept .concept__images .image-flower {
+          top: 30%;
+          height: 24vh; } }
+      @media screen and (max-width: 767px) and (min-width: 320px) {
+        .container #concept .concept__images .image-flower {
+          top: 54%;
+          width: 80%;
+          height: 22vh; } }
+  .container #products .products__inner {
+    width: 100%;
+    height: calc(100% - 40px);
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap; }
+    .container #products .products__inner .products__images {
+      width: 50%;
+      display: flex;
+      flex-direction: column; }
+      @media screen and (max-width: 767px) and (min-width: 320px) {
+        .container #products .products__inner .products__images {
+          width: 100%; } }
+      .container #products .products__inner .products__images .products__image {
+        max-width: 500px;
+        width: 100%;
+        height: auto;
+        margin: 0 auto 0 0;
+        padding-bottom: 20px; }
+      .container #products .products__inner .products__images .bottom {
+        margin: 0 0 0 auto; }
+    .container #products .products__inner .products__information {
+      width: 50%;
+      padding-left: 5%; }
+      @media screen and (max-width: 767px) and (min-width: 320px) {
+        .container #products .products__inner .products__information {
+          width: 100%;
+          padding: 20px 0; } }
+      .container #products .products__inner .products__information .products-name {
+        font-size: 2rem;
+        letter-spacing: 0.8rem; }
+      .container #products .products__inner .products__information .products-price {
+        font-size: 1.3rem;
+        line-height: 2rem; }
+        @media screen and (max-width: 767px) and (min-width: 320px) {
+          .container #products .products__inner .products__information .products-price {
+            font-size: 1.2rem; } }
+      .container #products .products__inner .products__information .products-detail {
+        padding: 40px 0 20px;
+        line-height: 2.2rem; }
+        @media screen and (max-width: 767px) and (min-width: 320px) {
+          .container #products .products__inner .products__information .products-detail {
+            line-height: 2rem;
+            font-size: 1.2rem; } }
+      .container #products .products__inner .products__information dl {
+        font-size: 1.2rem;
+        letter-spacing: 0.3rem; }
+        @media screen and (max-width: 767px) and (min-width: 320px) {
+          .container #products .products__inner .products__information dl {
+            font-size: 1.1rem; } }
+        .container #products .products__inner .products__information dl dt {
+          float: left; }
+        .container #products .products__inner .products__information dl dd {
+          width: 260px;
+          padding-left: 90px; }
+      .container #products .products__inner .products__information form {
+        margin-top: 40px; }
+        .container #products .products__inner .products__information form .select-item p {
+          font-size: 1.2rem;
+          line-height: 2rem;
+          margin-top: 10px; }
+        .container #products .products__inner .products__information form .select-item select {
+          border: none;
+          padding: 0 5px;
+          height: 35px;
+          background-color: #eaeaea; }
+        .container #products .products__inner .products__information form .select-item .num {
+          width: 60px; }
+        .container #products .products__inner .products__information form .select-item .color {
+          width: 190px; }
+        .container #products .products__inner .products__information form .checkout_btn {
+          width: 288px;
+          height: 46px;
+          margin-top: 30px;
+          background-color: #181818;
+          text-align: center;
+          color: #fff; }
+          .container #products .products__inner .products__information form .checkout_btn:hover {
+            background-color: #c2c8d5; }
+  .container #products .checkout {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    overflow-y: scroll;
+    z-index: 3; }
+    .container #products .checkout .close_btn {
+      position: absolute;
+      top: 3%;
+      right: 3%;
+      width: 30px;
+      height: 30px; }
+      @media screen and (max-width: 767px) and (min-width: 320px) {
+        .container #products .checkout .close_btn {
+          width: 24px;
+          height: 24px; } }
+      .container #products .checkout .close_btn:before {
+        content: "";
+        position: absolute;
+        top: 14px;
+        left: 0px;
+        width: 30px;
+        height: 1px;
+        background-color: #181818;
+        transform: rotate(45deg); }
+        @media screen and (max-width: 767px) and (min-width: 320px) {
+          .container #products .checkout .close_btn:before {
+            top: 11px;
+            width: 24px; } }
+      .container #products .checkout .close_btn:after {
+        content: "";
+        position: absolute;
+        top: 14px;
+        left: 0px;
+        width: 30px;
+        height: 1px;
+        background-color: #181818;
+        transform: rotate(-45deg); }
+        @media screen and (max-width: 767px) and (min-width: 320px) {
+          .container #products .checkout .close_btn:after {
+            top: 11px;
+            width: 24px; } }
+    .container #products .checkout .checkout__information {
+      position: absolute;
+      top: 80px;
+      left: 50%;
+      max-width: 600px;
+      width: 80%;
+      height: 750px;
+      transform: translate(-50%, 0); }
+      @media screen and (max-width: 767px) and (min-width: 320px) {
+        .container #products .checkout .checkout__information {
+          width: 90%; } }
+      .container #products .checkout .checkout__information .title {
+        margin-bottom: 30px; }
+      .container #products .checkout .checkout__information p {
+        font-size: 1.2rem;
+        margin: 10px 0 5px; }
+      .container #products .checkout .checkout__information .checkout__detail {
+        width: 100%;
+        margin: 10px 0;
+        padding: 10px;
+        background-color: #eaf0fd; }
+        .container #products .checkout .checkout__information .checkout__detail p {
+          margin: 0; }
+        .container #products .checkout .checkout__information .checkout__detail .checkout__total {
+          margin-top: 10px;
+          border-bottom: solid 1px #181818; }
+      .container #products .checkout .checkout__information .buy_btn {
+        display: block;
+        width: 100%;
+        max-width: 320px;
+        min-width: 160px;
+        height: 46px;
+        margin-top: 40px;
+        color: #fff;
+        background-color: #181818; }
+        .container #products .checkout .checkout__information .buy_btn:hover {
+          background-color: #c2c8d5; }
+      .container #products .checkout .checkout__information .checkout__form {
+        margin: 20px 0; }
+        .container #products .checkout .checkout__information .checkout__form input {
+          width: 100%;
+          min-width: 160px;
+          height: 36px;
+          border: none;
+          background-color: #eaeaea;
+          padding: 0 10px; }
+        .container #products .checkout .checkout__information .checkout__form #checkout__name,
+        .container #products .checkout .checkout__information .checkout__form #checkout__tel,
+        .container #products .checkout .checkout__information .checkout__form #checkout__email {
+          max-width: 320px; }
+        .container #products .checkout .checkout__information .checkout__form #checkout__zipcode {
+          max-width: 160px; }
+  .container #contact .contact__form {
+    padding: 40px; }
+    @media screen and (max-width: 767px) and (min-width: 320px) {
+      .container #contact .contact__form {
+        padding: 10px; } }
+    .container #contact .contact__form p {
+      margin: 20px 0 6px; }
+    .container #contact .contact__form input {
+      width: 100%;
+      max-width: 300px;
+      min-width: 160px;
+      height: 36px;
+      border: none;
+      background-color: #eaeaea;
+      padding: 0 10px; }
+    .container #contact .contact__form textarea {
+      height: 140px;
+      width: 100%;
+      max-width: 580px;
+      min-width: 160px;
+      padding: 10px;
+      border: none;
+      background-color: #eaeaea; }
+    .container #contact .contact__form .confirm_btn {
+      display: block;
+      width: 100%;
+      max-width: 300px;
+      min-width: 160px;
+      height: 46px;
+      margin-top: 40px;
+      background-color: #181818;
+      color: #fff; }
+      .container #contact .contact__form .confirm_btn:hover {
+        background-color: #c2c8d5; }
+  .container #contact .confirm {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    overflow-y: scroll;
+    z-index: 12; }
+    .container #contact .confirm .confirm__contents {
+      position: relative;
+      top: 40px;
+      left: 50%;
+      width: 80%;
+      max-width: 1000px;
+      min-width: 300px;
+      max-height: 800px;
+      padding: 5%;
+      transform: translate(-50%, 0); }
+      .container #contact .confirm .confirm__contents .title {
+        margin-bottom: 40px; }
+      .container #contact .confirm .confirm__contents p {
+        color: #858585;
+        margin-bottom: 6px; }
+      .container #contact .confirm .confirm__contents .confirm__name,
+      .container #contact .confirm .confirm__contents .confirm__tel,
+      .container #contact .confirm .confirm__contents .confirm__email,
+      .container #contact .confirm .confirm__contents .confirm__text {
+        height: 36px;
+        color: #181818;
+        background-color: #eaeaea;
+        margin-bottom: 20px;
+        padding: 0 10px;
+        line-height: 3.6rem; }
+      .container #contact .confirm .confirm__contents .confirm__text {
+        min-height: 70px; }
+      .container #contact .confirm .confirm__contents .btns {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        margin-top: 40px; }
+        .container #contact .confirm .confirm__contents .btns .back_btn,
+        .container #contact .confirm .confirm__contents .btns .submit_btn {
+          width: 40%;
+          max-width: 300px;
+          min-width: 120px;
+          height: 46px;
+          background-color: #181818;
+          color: #fff; }
+          .container #contact .confirm .confirm__contents .btns .back_btn:hover,
+          .container #contact .confirm .confirm__contents .btns .submit_btn:hover {
+            background-color: #c2c8d5; }
+
+footer {
+  position: relative;
+  width: 100%;
+  height: 40%;
+  min-height: 340px;
+  background-color: #858585;
+  color: #fff;
+  letter-spacing: 0.4rem; }
+  footer .shop {
+    position: absolute;
+    top: 5vmin;
+    left: 5vmin;
+    width: 240px;
+    height: 160px; }
+    footer .shop h3 {
+      font-size: 1.6rem;
+      font-weight: 400;
+      letter-spacing: 0.6rem; }
+    footer .shop hr {
+      width: 100px;
+      margin: 20px 0; }
+    footer .shop ul li {
+      padding: 4px 0;
+      font-size: 1.4rem;
+      letter-spacing: 0.4rem; }
+  footer small {
+    position: absolute;
+    bottom: 5%;
+    right: 3%;
+    font-size: 1.2rem; }
