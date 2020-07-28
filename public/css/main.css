@@ -563,7 +563,8 @@ header {
         margin-bottom: 20px;
         padding: 0 10px;
         line-height: 3.6rem;
-        text-overflow: ellipsis; }
+        overflow: hidden;
+        word-break: break-all; }
       .container #contact .confirm .confirm__contents .confirm__text {
         min-height: 72px;
         height: auto; }
