@@ -136,7 +136,6 @@ header {
       display: inline-block;
       width: 20px;
       height: 1px;
-      transform: translate(0, -50%);
       background-color: $darkgray;
       transition: 0.2s;
       will-change: transform;
@@ -154,6 +153,7 @@ header {
         height: 1px;
         background-color: $darkgray;
         transition: 0.6s;
+        will-change: transform;
 
         @include phone {
           top: -7px;
@@ -170,6 +170,7 @@ header {
         height: 1px;
         background-color: $darkgray;
         transition: 0.6s;
+        will-change: transform;
 
         @include phone {
           top: 7px;
