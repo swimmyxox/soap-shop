@@ -17,12 +17,12 @@ $(function () {
   });
 
   $(window).scroll(function () {
-    var scroll = $(window).scrollTop();
-    var windowHeight = $(window).height();
-    var windowWidth = $(window).width();
+    let scroll = $(window).scrollTop();
+    let windowHeight = $(window).height();
+    let windowWidth = $(window).width();
 
     // ---------- concept image animation ----------
-    var imageHand = $(".image-hand").offset().top;
+    let imageHand = $(".image-hand").offset().top;
     if (
       scroll > imageHand / 3 &&
       scroll < imageHand * 1.2 &&
@@ -49,7 +49,7 @@ $(function () {
       $(".image-hand").css("transform", "");
     }
 
-    var imageFlower = $(".image-flower").offset().top;
+    let imageFlower = $(".image-flower").offset().top;
     if (
       scroll > imageFlower / 3 &&
       scroll < imageFlower * 1.2 &&
@@ -70,7 +70,7 @@ $(function () {
     $(
       ".title,.ja,.en,.products-name,.products-price,.products-detail,dt,dd"
     ).each(function () {
-      var t = $(this).offset().top;
+      let t = $(this).offset().top;
       if (scroll > t - windowHeight) {
         $(this).addClass("animation");
       } else if (scroll < t - windowHeight) {
